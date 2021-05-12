@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="931.0" style="-fx-background-color: #6B5B95#6B5B95;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.TitleScreenController">
+    <children>
+        <Label alignment="CENTER" layoutX="122.0" layoutY="29.0" prefHeight="113.0" prefWidth="370.0" text="Family Tree" AnchorPane.leftAnchor="122.0" AnchorPane.rightAnchor="121.0">
+         <font>
+            <Font name="Arial Bold Italic" size="39.0" />
+         </font>
+        </Label>
+        <Button fx:id="createYourOwnTreeBtn" layoutX="80.0" layoutY="159.0" mnemonicParsing="false" onAction="#createTree" prefHeight="67.0" prefWidth="477.0" text="Create your own tree" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="56.0" AnchorPane.topAnchor="159.0">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+        </Button>
+        <Button fx:id="representTreeFromFileBtn" layoutX="78.0" layoutY="256.0" mnemonicParsing="false" onAction="#loadTree" prefHeight="67.0" prefWidth="477.0" text="Represent tree from file" AnchorPane.leftAnchor="78.0" AnchorPane.rightAnchor="58.0" AnchorPane.topAnchor="256.0">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+        </Button>
+      <Button fx:id="exitTheApplicationBtn" layoutX="78.0" layoutY="360.0" mnemonicParsing="false" onAction="#stop" prefHeight="67.0" prefWidth="798.0" text="Exit the application" AnchorPane.leftAnchor="78.0" AnchorPane.rightAnchor="58.0" AnchorPane.topAnchor="360.0">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainPane" prefHeight="835.0" prefWidth="1284.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tree.TreeController">
+    <children>
+        <AnchorPane fx:id="filterPane" layoutY="29.0" prefHeight="823.0" prefWidth="271.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="27.0">
+            <children>
+                <ScrollPane layoutX="6.0" layoutY="3.0" prefHeight="819.0" prefWidth="256.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="3.0">
+                    <content>
+                        <TreeView fx:id="treeView" prefHeight="2050.0" prefWidth="245.0" />
+                    </content>
+                </ScrollPane>
+            </children>
+        </AnchorPane>
+        <ScrollPane fx:id="treeViewScrollPane" hvalue="0.4" layoutX="309.0" layoutY="29.0" prefHeight="808.0" prefWidth="974.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="310.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
+            <content>
+                <AnchorPane fx:id="treePane" prefHeight="3000.0" prefWidth="3000.0" style="-fx-background-color: white;">
+                    <children>
+                        <AnchorPane fx:id="infoPaneWithButtons" layoutX="884.0" layoutY="18.0" prefHeight="315.0" prefWidth="419.0" style="-fx-background-color: #e2e4ca;" visible="false">
+                            <children>
+                                <Button fx:id="exitBtn" layoutX="309.0" layoutY="276.0" mnemonicParsing="false" onAction="#makeInfoPaneInvisible" prefHeight="25.0" prefWidth="100.0" text="Exit" />
+                                <Button fx:id="saveBtn" layoutX="13.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Save" />
+                                <Pane fx:id="infoPane" layoutX="28.0" layoutY="4.0" prefHeight="267.0" prefWidth="372.0">
+                                    <children>
+                                        <Label layoutX="161.0" layoutY="1.0" prefHeight="27.0" prefWidth="103.0" text="Name">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>
+                                        <TextField fx:id="textFieldName" layoutX="37.0" layoutY="27.0" prefHeight="27.0" prefWidth="299.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></TextField>
+                                        <Label layoutX="149.0" layoutY="62.0" prefHeight="27.0" prefWidth="102.0" text="Surname">
+                                 <font>
+                                    <Font name="Arial" size="15.0" />
+                                 </font></Label>
+                                        <TextField fx:id="textFieldSurname" layoutX="38.0" layoutY="87.0" prefHeight="29.0" prefWidth="299.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></TextField>
+                                        <Label layoutX="147.0" layoutY="127.0" prefHeight="27.0" prefWidth="78.0" text="Birth date">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>
+                                        <DatePicker fx:id="datePickerBirthday" layoutX="38.0" layoutY="153.0" prefHeight="31.0" prefWidth="299.0" />
+                              <Label layoutX="142.0" layoutY="189.0" prefHeight="27.0" prefWidth="78.0" text="Birth place">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="textFieldBirthPlace" layoutX="36.0" layoutY="215.0" prefHeight="29.0" prefWidth="299.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                                    </children>
+                                </Pane>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+          <Button layoutX="7.0" layoutY="1.0" mnemonicParsing="false" onAction="#makeRoot" prefHeight="25.0" prefWidth="138.0" text="Filter" AnchorPane.bottomAnchor="820.0" AnchorPane.leftAnchor="7.0" />
+          <Button layoutX="642.0" mnemonicParsing="false" onAction="#createNewTree" prefHeight="25.0" prefWidth="212.0" text="Create new Tree" AnchorPane.bottomAnchor="820.0" AnchorPane.leftAnchor="642.0" AnchorPane.rightAnchor="430.0" />
+          <Separator layoutX="300.0" layoutY="27.0" orientation="VERTICAL" prefHeight="823.0" prefWidth="10.0" AnchorPane.bottomAnchor="-27.0" AnchorPane.rightAnchor="-39.0" AnchorPane.topAnchor="27.0" />
+      <MenuBar fx:id="menuBar" layoutX="1202.0" layoutY="1.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Actions">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#saveTree" text="Save as CSV" />
+                  <MenuItem mnemonicParsing="false" onAction="#saveToPDF" text="Save as PDF" />
+              <MenuItem mnemonicParsing="false" onAction="#close" text="Back" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+          <Button layoutX="1113.0" layoutY="2.0" mnemonicParsing="false" onAction="#load" prefHeight="25.0" prefWidth="86.0" text="Load">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>
